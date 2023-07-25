@@ -1,0 +1,7 @@
+# dependencies
+/node_modules
+/src
+/public
+
+# production
+/build

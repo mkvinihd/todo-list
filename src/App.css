@@ -1,38 +1,106 @@
-.App {
+:root {
+  --main-rgba-color: rgba(0, 0, 0, 0.03);
+  --selected-card-edit: rgba(255, 141, 89, 0.8);
+  --border-radius-5: 5px;
+  --bg-color-item: #fff;
+}
+
+.new-todo {
+  background-color: var(--main-rgba-color);
+  box-shadow: inset 0 -2px 1px var(--main-rgba-color);
+  font-size: 1.5rem;
+  font-style: italic;
+  width: 100%;
+  padding: 16px 16px 18px 16px;
+}
+
+.list-card-container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.edit-actived-card {
+  scale: 1.1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.edit-desactived-card {
+  scale: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.list-card-container>li {
+  list-style: none;
+  background-color: var(--bg-color-item);
+  box-shadow: 0 1px 5px var(--main-rgba-color);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  width: 100%;
+  border-radius: var(--border-radius-5);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: all 0.2s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.list-card-container>li>textarea {
+  width: 15rem;
+  overflow-y: auto;
+  overflow-wrap: break-word;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-card-button>button {
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: var(--bg-color-item);
+  border-radius: var(--border-radius-5);
+  box-shadow: 0 5px 5px var(--main-rgba-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.list-card-button>button:hover {
+  background-color: var(--main-rgba-color);
+}
+
+.list-card-button>span {
+  display: block;
+  font-size: 10px;
+  color: #c3c3c3;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.list-card-button>span:last-child {
+  font-size: 7px;
+  text-align: end;
+  margin-top: 0.2rem;
+}
+
+.list-card-button b {
+  font-size: 9px;
+}
+
+.list-card-checkbox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5rem;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.list-card-completed {
+  position: absolute;
+  background-color: #e3e3e3 !important;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 1;
+  opacity: 0.7;
+  border-radius: var(--border-radius-5);
+  cursor: not-allowed;
+}
+
+.list-card-completed-textarea {
+  text-decoration: line-through;
 }
